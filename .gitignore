@@ -1,0 +1,11 @@
+node_modules/
+.next/
+out/
+*.tsbuildinfo
+.env*
+!.env.example
+.DS_Store
+.openai/*.tar.gz
+artifacts/
+# The local planning brief includes client identities awaiting publication approval.
+/PORTFOLIO_BRIEF.md
