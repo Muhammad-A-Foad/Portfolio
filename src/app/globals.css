@@ -1927,19 +1927,23 @@ p {
   }
   .contact-heading {
     margin-top: 26px;
-    gap: 20px;
+    display: block;
+    position: relative;
   }
   .contact-heading h2 {
-    font-size: 67px;
+    font-size: clamp(52px, 16vw, 67px);
     letter-spacing: -3px;
   }
   .contact-heading h2 em {
     letter-spacing: -2px;
   }
   .contact-heading > svg {
-    width: 45px;
-    height: 45px;
-    margin-right: 4%;
+    position: absolute;
+    right: 0;
+    bottom: 12px;
+    width: 40px;
+    height: 40px;
+    margin: 0;
   }
   .contact-options {
     grid-template-columns: 1fr;
@@ -2114,7 +2118,7 @@ p {
     display: none;
   }
   .hero h1 {
-    font-size: 40px;
+    font-size: clamp(34px, 11vw, 40px);
     letter-spacing: -2px;
   }
   .hero-actions {
@@ -2128,7 +2132,7 @@ p {
     font-size: 5px;
   }
   .contact-heading h2 {
-    font-size: 58px;
+    font-size: clamp(46px, 16vw, 58px);
   }
   .contact-heading > svg {
     width: 35px;
