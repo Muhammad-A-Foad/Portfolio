@@ -1,0 +1,16 @@
+# Only inputs required to build the application enter the Docker context.
+*
+!Dockerfile
+!package.json
+!package-lock.json
+!next.config.ts
+!next-env.d.ts
+!tsconfig.json
+!src/
+!src/**
+!public/
+!public/**
+!scripts/
+!scripts/**
+!docker/
+!docker/nginx.conf
