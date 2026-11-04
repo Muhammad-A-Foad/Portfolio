@@ -3,6 +3,7 @@
 import Link from "next/link";
 import { useRef } from "react";
 import { Arrow } from "./icons";
+import { ResumeLink } from "./resume-link";
 
 export function MobileMenu() {
   const menu = useRef<HTMLDetailsElement>(null);
@@ -36,6 +37,7 @@ export function MobileMenu() {
             {link.title === "Contact" && <Arrow diagonal />}
           </Link>
         ))}
+        <ResumeLink onClick={close} />
       </nav>
     </details>
   );

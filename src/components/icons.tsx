@@ -25,6 +25,26 @@ export function Arrow({
   );
 }
 
+export function Download() {
+  return (
+    <svg
+      width="20"
+      height="20"
+      viewBox="0 0 24 24"
+      fill="none"
+      aria-hidden="true"
+    >
+      <path
+        d="M12 3v12m-4-4 4 4 4-4M5 16v4h14v-4"
+        stroke="currentColor"
+        strokeWidth="1.5"
+        strokeLinecap="round"
+        strokeLinejoin="round"
+      />
+    </svg>
+  );
+}
+
 export function Star({ className = "" }: { className?: string }) {
   return (
     <svg

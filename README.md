@@ -29,14 +29,17 @@ npm start
 - `src/components`: navigation, contact, illustration, and other reusable components.
 - `src/app/globals.css`: design tokens, page styles, responsive rules, and reduced-motion support.
 - `public/social.svg` and `public/social.png`: social artwork source and exported image.
+- `public/resume/Muhammad-Ahmad-Foad-CV-Nov-2026.pdf`: the exact supplied November 2026 CV, linked through a shared download component.
+- `public/projects`: approved public-homepage screenshots in responsive WebP sizes. Source and review notes are in `docs/content-sources.md`.
+- `src/app/refinements.css`: résumé, timeline, screenshot presentation, and responsive visual enhancements.
 
-Manrope and Newsreader are self-hosted through `next/font`; license notices are included in `public/fonts/licenses`. Visuals are original code-native illustrations and explicitly labeled as conceptual. They are not product screenshots or measured environmental data.
+Manrope and Newsreader are self-hosted through `next/font`; license notices are included in `public/fonts/licenses`. Public website screenshots are labeled separately from original conceptual artwork. Scroll reveals are progressive enhancements, disabled for reduced motion, and content remains visible without JavaScript.
 
 ## Content still awaiting review
 
-The interface is complete, but project attribution, current deployment status, and project outcomes need owner review. Case studies preserve those uncertainties. Client names and branding are withheld where publication permission is not established. ERP modules remain explicitly planned scope.
+The November 2026 CV supplies updated Dewan Soft experience, Mama Fattoum and LMS delivery details, education dates, and AWS leadership dates. It also supplies the downloadable résumé. Muhammad approved reviewed screenshots of the three public project homepages. Client names and materials remain withheld wherever permission is not established, and the retail ERP remains planned scope.
 
-Still needed: approved product screenshots, project repository/demo URLs, experience dates, a résumé, detailed individual/team contributions, current-learning classification, and any custom domain. Do not replace these gaps with invented claims or guessed links.
+Still needed: detailed individual/team attribution for GeoBasira and the ERP planning artifacts, approved private-product screenshots if desired, project repository links, and a current-learning classification. Do not replace these gaps with invented claims or guessed links.
 
 The local `PORTFOLIO_BRIEF.md` contains planning information and client identities. It is intentionally ignored by Git and must remain outside this public source repository until its contents are approved for publication. Read it when present, together with `AGENTS.md`, before editing content. On a fresh clone, obtain the brief privately from the owner; the approved public content lives in `src/content/portfolio.ts`.
 

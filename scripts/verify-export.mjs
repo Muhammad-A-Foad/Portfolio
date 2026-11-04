@@ -65,6 +65,26 @@ for (const filename of pages) {
 }
 for (const asset of ["robots.txt", "sitemap.xml", "social.png", "icon.svg"])
   assert.ok(existsSync(path.join(root, asset)), `Missing ${asset}`);
+const home = readFileSync(path.join(root, "index.html"), "utf8");
+const resumeLinks = [
+  ...home.matchAll(/<a\b[^>]*href="(\/resume\/[^"#]+\.pdf)"[^>]*>/g),
+];
+assert.ok(
+  resumeLinks.length >= 3,
+  "Résumé must be accessible from multiple homepage locations.",
+);
+for (const [tag, href] of resumeLinks) {
+  assert.ok(
+    /\bdownload(?:=|\s|>)/.test(tag),
+    `Résumé link must download: ${href}`,
+  );
+  const pdf = readFileSync(path.join(root, href));
+  assert.equal(
+    pdf.subarray(0, 5).toString(),
+    "%PDF-",
+    "Résumé must be a real PDF.",
+  );
+}
 console.log(
-  `Verified ${pages.length} HTML pages, ${links} local links/assets, metadata, and anchors.`,
+  `Verified ${pages.length} HTML pages, ${links} local links/assets, metadata, anchors, and ${resumeLinks.length} résumé download links.`,
 );

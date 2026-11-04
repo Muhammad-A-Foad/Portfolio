@@ -3,7 +3,9 @@ import { Manrope, Newsreader } from "next/font/google";
 import { Header } from "@/components/header";
 import { Footer } from "@/components/footer";
 import { siteUrl } from "@/content/site";
+import { profile } from "@/content/portfolio";
 import "./globals.css";
+import "./refinements.css";
 
 const sans = Manrope({
   subsets: ["latin"],
@@ -20,17 +22,17 @@ const serif = Newsreader({
 export const metadata: Metadata = {
   metadataBase: new URL(siteUrl),
   title: {
-    default: "Muhammad — Full-Stack Software Engineer",
-    template: "%s — Muhammad",
+    default: "Muhammad Ahmad Foad — Full-Stack Software Engineer",
+    template: "%s — Muhammad Ahmad Foad",
   },
   description:
-    "Muhammad is a Full-Stack Software Engineer and Software Development student at Zewail City. Explore work in business software, learning platforms, and environmental intelligence.",
+    "Muhammad Ahmad Foad is a Full-Stack Software Engineer building web, mobile, and desktop applications. Explore production software, ERP work, AI integrations, and download his résumé.",
   applicationName: "Muhammad — Portfolio",
-  authors: [{ name: "Muhammad" }],
+  authors: [{ name: profile.fullName }],
   openGraph: {
     type: "website",
     locale: "en_US",
-    title: "Muhammad — Full-Stack Software Engineer",
+    title: "Muhammad Ahmad Foad — Full-Stack Software Engineer",
     description:
       "Thoughtful code. Useful software. Selected engineering work and the thinking behind it.",
     images: [
@@ -44,7 +46,7 @@ export const metadata: Metadata = {
   },
   twitter: {
     card: "summary_large_image",
-    title: "Muhammad — Full-Stack Software Engineer",
+    title: "Muhammad Ahmad Foad — Full-Stack Software Engineer",
     images: ["/social.png"],
   },
   robots: { index: true, follow: true },

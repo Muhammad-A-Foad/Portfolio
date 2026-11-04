@@ -4,6 +4,8 @@ import { notFound } from "next/navigation";
 import { projects } from "@/content/portfolio";
 import { ProjectVisual } from "@/components/project-visual";
 import { Arrow } from "@/components/icons";
+import { ProjectPreview } from "@/components/project-preview";
+import { SystemDiagram } from "@/components/system-diagram";
 
 export const dynamicParams = false;
 export function generateStaticParams() {
@@ -59,6 +61,22 @@ export default async function CaseStudy({
             <span>.</span>
           </h1>
           <p className="case-summary">{project.summary}</p>
+          <div className="case-project-actions">
+            {project.website && (
+              <a
+                className="button button-primary"
+                href={project.website}
+                target="_blank"
+                rel="noopener noreferrer"
+              >
+                Visit live website <Arrow diagonal />
+              </a>
+            )}
+            <span className="case-role">
+              <strong>{project.role}</strong>
+              <span className="case-period">{project.period}</span>
+            </span>
+          </div>
           <div className="case-metadata">
             <div>
               <span>CONTEXT</span>
@@ -74,7 +92,25 @@ export default async function CaseStudy({
             </div>
           </div>
         </header>
-        <ProjectVisual theme={project.theme} />
+        {project.screenshot ? (
+          <>
+            <ProjectPreview project={project} large />
+            <div className="project-screen-caption">
+              <span>
+                Public homepage · captured November 2026 · shown with permission
+              </span>
+              <a
+                href={project.website}
+                target="_blank"
+                rel="noopener noreferrer"
+              >
+                Explore the website <Arrow diagonal />
+              </a>
+            </div>
+          </>
+        ) : (
+          <ProjectVisual theme={project.theme} />
+        )}
         <div className="case-content">
           <aside className="case-toc">
             <span>INSIDE THE PROJECT</span>
@@ -107,6 +143,7 @@ export default async function CaseStudy({
                 <em>fit together.</em>
               </h2>
               <p>{project.approach}</p>
+              <SystemDiagram nodes={project.architecture} />
               <div className="case-focus">
                 {project.focus.map((focus, i) => (
                   <article key={focus.title}>
@@ -116,10 +153,6 @@ export default async function CaseStudy({
                   </article>
                 ))}
               </div>
-              <p className="evidence-note">
-                These are engineering areas to explore, rather than a claim that
-                every implementation decision has been independently verified.
-              </p>
             </section>
             <section id="contribution">
               <span className="section-label">03 / INDIVIDUAL & TEAM WORK</span>

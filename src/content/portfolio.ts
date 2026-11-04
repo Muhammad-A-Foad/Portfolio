@@ -1,9 +1,14 @@
 export const profile = {
   name: "Muhammad",
+  fullName: "Muhammad Ahmad Foad",
   title: "Full-Stack Software Engineer",
+  location: "Egypt",
   email: "muhammad.a.foad@gmail.com",
   github: "https://github.com/Muhammad-A-Foad",
   linkedin: "https://www.linkedin.com/in/muhammad-a-foad/",
+  resumeUrl: "/resume/Muhammad-Ahmad-Foad-CV-Nov-2026.pdf",
+  resumeFilename: "Muhammad-Ahmad-Foad-CV-Nov-2026.pdf",
+  resumeEdition: "November 2026",
 };
 
 export type Project = {
@@ -12,12 +17,17 @@ export type Project = {
   title: string;
   category: string;
   summary: string;
-  theme: "restaurant" | "learning" | "geo" | "erp";
+  theme: "restaurant" | "learning" | "academy" | "geo" | "erp";
   status: string;
+  period: string;
+  role: string;
+  website?: string;
+  screenshot?: string;
   stack: string[];
   context: string;
   requirements: string[];
   approach: string;
+  architecture: { label: string; detail: string }[];
   focus: { title: string; body: string }[];
   contribution: string;
   outcome: string;
@@ -28,215 +38,309 @@ export const projects: Project[] = [
   {
     slug: "restaurant-operations",
     number: "01",
-    title: "Restaurant Operations",
-    category: "Business software / Multi-application system",
+    title: "Mama Fattoum",
+    category: "Restaurant operations · Web, mobile & desktop",
     theme: "restaurant",
     summary:
-      "One connected workflow. From the first tap at the kiosk to the last order leaving the kitchen.",
-    status: "Reported deployed pilot · current status unverified",
-    stack: ["React / Next.js", "NestJS", "PostgreSQL", "Node.js"],
+      "A production restaurant platform connecting the customer, the cashier, and the kitchen—across web, mobile, and desktop.",
+    status: "Production platform",
+    period: "Apr 2026 — Present",
+    role: "Full-stack development",
+    website: "https://fattoumfoods.com",
+    screenshot: "/projects/mama-fattoum.webp",
+    stack: ["Next.js / React", "React Native", "Tauri", "NestJS", "PostgreSQL"],
     context:
-      "Restaurant service spans several interfaces, people, and physical devices. This project brings customer ordering, cashier operations, kitchen preparation, and order collection into a shared software workflow.",
+      "A restaurant’s software supports the whole service: placing an order, managing it, preparing food, and notifying the customer. Mama Fattoum connects ordering, administration, kiosk, cashier, notifier, and central-kitchen workflows through a shared backend.",
     requirements: [
-      "Connect kiosk, cashier, kitchen display, and order notification applications.",
-      "Represent the order lifecycle consistently across interfaces.",
-      "Integrate POS terminals, receipt printing, and cash drawer hardware.",
+      "Connect customer and operational applications through NestJS and PostgreSQL.",
+      "Build web, mobile, and desktop interfaces for different workflows.",
+      "Integrate Bluetooth barcode scanning with the iPad cashier app.",
+      "Support administrator-defined subscriptions with customer customization.",
     ],
     approach:
-      "Multiple user-facing applications communicate with shared backend services. The engineering scope brings together interface development, APIs, relational data, operational updates, and physical hardware integrations.",
+      "The platform combines Next.js/React web apps, React Native mobile apps, and a Tauri ordering kiosk. NestJS and PostgreSQL provide the shared backend for the ordering and operational workflows.",
+    architecture: [
+      { label: "EXPERIENCES", detail: "Web · Mobile · Kiosk" },
+      { label: "SERVICES", detail: "NestJS backend" },
+      { label: "DATA", detail: "PostgreSQL" },
+    ],
     focus: [
       {
-        title: "A shared order lifecycle",
-        body: "The central engineering concern is consistency: a customer, cashier, and kitchen team need different views of the same order. A useful case study must explain how those views are coordinated.",
+        title: "Different interfaces, a connected operation",
+        body: "Customer ordering, administration, the cashier, and the kitchen have different needs. I developed applications around those roles while connecting them through the shared backend.",
       },
       {
-        title: "Software meets hardware",
-        body: "Payment terminals, receipt printers, and cash drawers introduce device behavior into application workflows. Integration boundaries and failure handling are important areas for the technical walkthrough.",
+        title: "Bring physical input into the workflow",
+        body: "I integrated Bluetooth barcode scanning with the React Native iPad cashier application, connecting a physical input device to cashier operations.",
       },
       {
-        title: "Interfaces with a purpose",
-        body: "Each application serves a different operational context, from customer self-service to quick cashier input and kitchen visibility.",
+        title: "Subscriptions with room for choice",
+        body: "I built configurable subscriptions so administrators could define packages and customers could customize their selections.",
       },
     ],
     contribution:
-      "This is a project in my portfolio. The precise split between my implementation work and team contributions is pending confirmation; this overview does not claim sole authorship.",
+      "I built the NestJS/PostgreSQL backend, Next.js/React web apps, React Native mobile apps, and Tauri ordering kiosk. My implementation work also includes iPad barcode scanning and configurable subscriptions. These are my software contributions; restaurant operations and business ownership belong to the client.",
     outcome:
-      "The supplied project brief describes a live pilot / deployed system. Its current deployment and implemented scope need verification before stronger outcome claims can be made.",
+      "A production platform spanning ordering, administration, kiosk, cashier, notifier, and central-kitchen workflows. Development is ongoing, as listed in my November 2026 CV.",
     limitations:
-      "Public screenshots, a demonstrable environment, implementation decisions, and detailed contribution attribution are not yet available here. The accompanying visual is an illustrative workflow, not a product screenshot.",
+      "The public homepage is shown with permission. Private administration screens, operational records, and payment details are excluded. The system diagram is a simplified overview.",
   },
   {
     slug: "learning-platform",
     number: "02",
-    title: "A platform for learning",
-    category: "Education / Learning management",
+    title: "Nooran Land",
+    category: "Education · Learning management",
     theme: "learning",
     summary:
-      "The application and infrastructure behind an online academy’s learning experience.",
-    status: "Running system reported · public demonstration pending",
-    stack: ["NestJS", "Bun", "PostgreSQL", "Cloudflare"],
+      "A live learning platform for Arabic and Islamic studies, from the public website to administration and PayPal payments.",
+    status: "Live LMS",
+    period: "Jun 2026",
+    role: "Full-stack development",
+    website: "https://nooranland.com",
+    screenshot: "/projects/nooran-land.webp",
+    stack: ["Next.js", "React", "NestJS", "PostgreSQL", "PayPal"],
     context:
-      "An online academy needs software to organize its courses and learning workflows. This learning management project combines backend functionality, relational data, and deployment infrastructure.",
+      "An online academy needs a clear public experience and the software behind its learning operations. Nooran Land brings the website, administration, backend, database, and payments together in one LMS project.",
     requirements: [
-      "Support course and learning management through backend APIs.",
-      "Model learning-related information in a relational database.",
-      "Configure VPS infrastructure and the deployment environment.",
+      "Build the academy’s Next.js website.",
+      "Provide a React administration dashboard.",
+      "Develop the backend with NestJS and PostgreSQL.",
+      "Integrate PayPal payments.",
     ],
     approach:
-      "The project brief identifies a NestJS backend, Bun, PostgreSQL, and Cloudflare. The case-study focus is the relationship between application behavior, database design, and the infrastructure needed to run the system.",
+      "A Next.js website serves the academy’s public presence, while a React dashboard supports administration. NestJS and PostgreSQL provide the backend and data layer, with PayPal integrated for payments.",
+    architecture: [
+      { label: "INTERFACES", detail: "Next.js · React admin" },
+      { label: "BACKEND", detail: "NestJS · PostgreSQL" },
+      { label: "PAYMENTS", detail: "PayPal integration" },
+    ],
     focus: [
       {
-        title: "Model the learning domain",
-        body: "Course and learning management need clear relationships in the data model. The eventual technical walkthrough will connect those relationships to the workflows they support.",
+        title: "Public experience and administration",
+        body: "I built the Next.js website and React admin dashboard, giving the academy distinct interfaces for visitors and administration.",
       },
       {
-        title: "Design useful API boundaries",
-        body: "Backend endpoints translate learning workflows into application behavior. Detailed API examples will be included only after the implemented functionality is reviewed.",
+        title: "Connect behavior to structured data",
+        body: "I developed the backend using NestJS and PostgreSQL, connecting LMS functionality to its application and data layers.",
       },
       {
-        title: "Take the application beyond local development",
-        body: "VPS configuration and deployment are part of the project scope, connecting the backend implementation to its operating environment.",
+        title: "Include the payment workflow",
+        body: "I integrated PayPal payments as part of the live LMS. Transaction and learner information remain outside the public case study.",
       },
     ],
     contribution:
-      "The brief identifies backend API development and deployment as engineering areas. Individual responsibilities and any collaborators still need to be confirmed.",
+      "I built the Next.js website, React admin dashboard, NestJS/PostgreSQL backend, and PayPal integration. Academy teaching, educational content, and business operations are the client’s responsibilities.",
     outcome:
-      "The project is described as a running system in the brief. Publicly demonstrable functionality and current deployment status have not been verified for this portfolio.",
+      "A live LMS delivered in June 2026 for an academy offering Arabic and Islamic studies. This portfolio describes the delivered software without claiming enrollment or revenue metrics.",
     limitations:
-      "The academy’s name, branding, screenshots, and private data are withheld pending publication permission. The visual illustrates a learning structure and does not reproduce the application.",
+      "The screenshot shows the public homepage with permission. Private learner records, administrative screens, and payment data are not shared.",
+  },
+  {
+    slug: "al-malik-academy",
+    number: "03",
+    title: "Al Malik Academy",
+    category: "Education · A separate LMS delivery",
+    theme: "academy",
+    summary:
+      "A separate academy platform with a Next.js website, a React admin dashboard, and an integrated backend and payment flow.",
+    status: "Live LMS",
+    period: "Jun 2026",
+    role: "Full-stack development",
+    website: "https://almalikacademyedu.com",
+    screenshot: "/projects/al-malik-academy.webp",
+    stack: ["Next.js", "React", "NestJS", "PostgreSQL", "PayPal"],
+    context:
+      "Al Malik Academy is a separate learning management project. Its scope covers the public website, administration, backend services, relational data, and PayPal payments.",
+    requirements: [
+      "Create the academy’s Next.js website.",
+      "Build a React administration dashboard.",
+      "Implement a NestJS and PostgreSQL backend.",
+      "Integrate PayPal payments.",
+    ],
+    approach:
+      "The platform uses Next.js for the website, React for administration, and NestJS with PostgreSQL for the backend. PayPal provides the payment integration. This is a separate academy project, rather than an additional module of Nooran Land.",
+    architecture: [
+      { label: "INTERFACES", detail: "Website · Admin" },
+      { label: "APPLICATION", detail: "NestJS · PostgreSQL" },
+      { label: "INTEGRATION", detail: "PayPal payments" },
+    ],
+    focus: [
+      {
+        title: "Deliver the full application surface",
+        body: "I built the public website and administration interface alongside the backend behind them.",
+      },
+      {
+        title: "Connect services and data",
+        body: "NestJS and PostgreSQL form the backend and data layer, matching the full-stack scope of the delivery.",
+      },
+      {
+        title: "Complete the payment integration",
+        body: "I integrated PayPal into the LMS delivery, keeping payment and customer information out of public portfolio materials.",
+      },
+    ],
+    contribution:
+      "I built the Next.js website, React admin dashboard, NestJS/PostgreSQL backend, and PayPal integration for this separate academy. This describes software implementation, not ownership of the academy or its educational content.",
+    outcome:
+      "A separate live LMS delivered in June 2026, documented in my November 2026 CV. The public website is linked from this case study.",
+    limitations:
+      "The screenshot shows the public homepage with permission. Administrative screens, learner information, and payment records are excluded.",
   },
   {
     slug: "geobasira",
-    number: "03",
+    number: "04",
     title: "GeoBasira",
-    category: "NASA Space Apps Cairo 2025 / Environmental intelligence",
+    category: "NASA Space Apps Cairo 2025 · Environmental intelligence",
     theme: "geo",
     summary:
-      "Bringing environmental data into a map-based experience that makes it easier to explore.",
-    status: "Competition project · 2025",
-    stack: ["React", "FastAPI", "Leaflet", "External data APIs"],
+      "An environmental intelligence exploration combining external data, geospatial visualization, and AI-assisted recommendations.",
+    status: "Competition project",
+    period: "2025",
+    role: "Team project · detailed attribution pending",
+    stack: ["React", "FastAPI", "Leaflet", "Environmental data APIs"],
     context:
       "Developed for NASA Space Apps Cairo 2025, GeoBasira explores how environmental and Earth observation data can be brought together to provide useful insights.",
     requirements: [
-      "Integrate external environmental and Earth observation data.",
+      "Integrate environmental and Earth observation data.",
       "Present geospatial information through a map-based interface.",
       "Explore AI-assisted recommendations alongside environmental insights.",
     ],
     approach:
-      "The project brief lists a React and Leaflet interface with FastAPI, alongside NASA TEMPO, Open-Meteo, OpenAQ, and Gemini. The technical story centers on external data integration, geographic presentation, and the limitations of a competition project.",
+      "The project combines React, Leaflet, and FastAPI with external sources including NASA TEMPO, Open-Meteo, OpenAQ, and Gemini. Its scope is a competition project, rather than a production environmental monitoring service.",
+    architecture: [
+      { label: "SOURCES", detail: "Environmental APIs" },
+      { label: "PROCESSING", detail: "FastAPI" },
+      { label: "EXPERIENCE", detail: "React · Leaflet" },
+    ],
     focus: [
       {
-        title: "Bring different sources together",
-        body: "Environmental datasets have different meanings and coverage. A careful implementation needs to preserve source context rather than treating every value as interchangeable.",
+        title: "Connect external sources",
+        body: "Environmental sources differ in coverage and meaning. Preserving that context is a core consideration when combining them.",
       },
       {
         title: "Make geography readable",
-        body: "A map gives environmental information a location. The interface challenge is helping a visitor connect a place with the information available about it.",
+        body: "A map gives information a location and connects a place with the data available about it.",
       },
       {
-        title: "Keep recommendations in context",
-        body: "AI-assisted recommendations are part of the project brief. Their implemented scope and evaluation need documentation before any accuracy claims are appropriate.",
+        title: "Communicate the limits",
+        body: "The project explores AI-assisted recommendations. No measured accuracy or production-readiness claim is made.",
       },
     ],
     contribution:
-      "This was a competition project. My individual responsibilities and the contributions of teammates are pending detailed attribution; no sole-authorship claim is made.",
+      "I participated in NASA Space Apps Challenge Cairo in 2025. The detailed split between my GeoBasira work and teammates’ contributions remains to be documented; this project is not presented as solely authored by me.",
     outcome:
-      "GeoBasira was developed for NASA Space Apps Cairo 2025. No award, competition ranking, or production-readiness claim is made.",
+      "A competition project developed for NASA Space Apps Cairo 2025. No award or competition ranking is claimed.",
     limitations:
-      "The current demo, repository, implemented data coverage, and team breakdown still need confirmation. The topographic illustration is conceptual and contains no measured environmental data.",
+      "The topographic artwork is conceptual and contains no measured environmental data. A public demo, repository, and detailed team attribution have not been added.",
   },
   {
     slug: "retail-erp",
-    number: "04",
+    number: "05",
     title: "Retail, understood as a system",
-    category: "Business analysis / ERP planning",
+    category: "Business analysis · ERP planning",
     theme: "erp",
     summary:
-      "Mapping the people, inventory, and financial workflows of a multi-branch retail business.",
+      "Understanding inventory, sales, finance, and staff workflows before translating a multi-branch business into a software model.",
     status: "Planning & prototyping",
+    period: "Planning study",
+    role: "Requirements & domain modeling",
     stack: ["Requirements engineering", "Domain modeling", "Database design"],
     context:
-      "A multi-branch retail business has interconnected inventory, cashier, finance, and staff workflows. This engagement is focused on understanding those operations and planning a suitable business management system.",
+      "A multi-branch retail business has interconnected inventory, cashier, finance, and staff workflows. This engagement focuses on understanding those operations and planning a suitable business management system.",
     requirements: [
       "Analyze inventory, batch, barcode, and point-of-sale requirements.",
       "Explore finance, vault, HR, and attendance workflows.",
       "Plan relationships between branches and reporting requirements.",
     ],
     approach:
-      "Begin with requirements analysis and domain modeling, then use database design and prototypes to explore the proposed system. These activities describe planning work, not a completed ERP implementation.",
+      "Requirements analysis and domain modeling come first, followed by database design and prototypes to explore the proposed system. The listed modules describe planned scope, not a completed ERP implementation.",
+    architecture: [
+      { label: "DISCOVERY", detail: "Operational requirements" },
+      { label: "MODELING", detail: "Domains · Data" },
+      { label: "EXPLORATION", detail: "Prototypes" },
+    ],
     focus: [
       {
-        title: "Start with the business process",
-        body: "Understanding how work happens across branches is the starting point for deciding what the software should represent.",
+        title: "Start with the process",
+        body: "Understanding how work happens across branches provides the basis for deciding what the software should represent.",
       },
       {
-        title: "Find the domain boundaries",
-        body: "Inventory, sales, finance, and staff processes intersect. Modeling those relationships helps expose questions before implementation.",
+        title: "Find domain boundaries",
+        body: "Inventory, sales, finance, and staff processes intersect. Modeling their relationships exposes questions before implementation.",
       },
       {
-        title: "Separate plans from delivery",
-        body: "A proposed module is a requirement to explore, not a shipped capability. Project communication should preserve that distinction.",
+        title: "Distinguish scope from delivery",
+        body: "Proposed modules remain requirements to explore, not shipped capabilities.",
       },
     ],
     contribution:
-      "The engagement covers business requirements, domain modeling, database design, and planning. Specific artifacts and individual ownership require review before publication.",
+      "The engagement covers requirements analysis, domain modeling, database design, and planning. Individual ownership of specific prototype artifacts remains to be detailed.",
     outcome:
-      "Development planning and prototyping. Inventory, POS, finance, HR, and reporting remain proposed scope and are not presented as completed functionality.",
+      "Planning and prototyping. Inventory, POS, finance, HR, and reporting remain proposed functionality.",
     limitations:
-      "The client identity, operational documents, and prototype artifacts are withheld pending permission. No completed product or live deployment is claimed.",
+      "The client identity, operational documents, and prototypes are withheld pending permission. No completed product or live deployment is claimed.",
   },
 ];
 
 export const experience = [
   {
-    organization: "Digify Solution",
-    role: "Founder & CEO",
-    area: "Entrepreneurship & software delivery",
-    body: "Client communication, requirements gathering, business analysis, project coordination, and quality assurance at an early-stage software company.",
+    organization: "Dewan Soft",
+    role: "Software Engineer",
+    type: "Contract",
+    period: "Oct 2026 — Present",
+    current: true,
+    area: "AI integrations & application engineering",
+    body: "Developing a confidential AI-powered technical-support integration, with documentation ingestion for RAG, LLM API integration, and WhatsApp messaging through incoming webhooks and outgoing API calls.",
+    detail: "Employer and client implementation details remain confidential.",
   },
   {
-    organization: "AWS Cloud Club · Zewail City",
-    role: "President / AWS Cloud Captain",
-    area: "Community & leadership",
-    body: "Organizing educational workshops and introducing students to AWS technologies.",
-  },
-  {
-    organization: "Zewail City",
-    role: "Junior Teaching Assistant",
-    area: "Academic support",
-    body: "Supporting students through teaching and academic assistance.",
-  },
-  {
-    organization: "EG Bank",
-    role: "Internship",
-    area: "Business operations",
-    body: "Exposure to customer service and banking operations.",
+    organization: "Dewan Soft",
+    role: "Software Engineering Intern",
+    type: "Internship",
+    period: "May — Sep 2026",
+    current: false,
+    area: "ERP development & maintenance",
+    body: "Diagnosed and resolved issues in existing ERP modules from client support tickets. Developed club-management ERP modules from requirements gathered by the technical consultation team.",
+    detail:
+      "Implementation and issue resolution within the engineering team; requirements were gathered by technical consultants.",
   },
 ];
 
+export const education = {
+  institution: "University of Science and Technology in Zewail City",
+  degree: "B.Sc. in Computer Science",
+  major: "Software Development Major",
+  period: "Aug 2024 — Expected Sep 2028",
+};
+export const leadership = {
+  role: "AWS Student Builder Group Leader",
+  period: "Oct 2025 — Oct 2026",
+  body: "Led student cloud-computing activities and organized introductory AWS and AWS Lambda workshops.",
+  activities:
+    "NASA Space Apps Challenge Cairo (2025) · Egyptian Collegiate Programming Contest (ECPC)",
+};
 export const skills = [
   {
     number: "01",
-    title: "Interfaces",
-    text: "React, Next.js, HTML, CSS",
-    note: "User-facing applications and connected workflows.",
+    title: "Web & cross-platform",
+    text: "React, Next.js, React Native, Tauri, Tailwind CSS",
+    note: "Web, mobile, and desktop interfaces backed by practical project work.",
   },
   {
     number: "02",
-    title: "Application logic",
-    text: "Node.js, NestJS, Express, FastAPI",
-    note: "APIs and the behavior behind the interface.",
+    title: "Services & data",
+    text: "Node.js, NestJS, PostgreSQL, REST APIs, authentication",
+    note: "Application logic, API integrations, and relational data.",
   },
   {
     number: "03",
-    title: "Data & modeling",
-    text: "PostgreSQL, SQL, relational design",
-    note: "Structured data and clear domain relationships.",
+    title: "AI integrations",
+    text: "LLM APIs, RAG document ingestion, webhooks",
+    note: "Current work connecting documentation, messaging, and AI services.",
   },
   {
     number: "04",
-    title: "Delivery",
-    text: "Docker, Linux, Dokploy, Cloudflare",
-    note: "Deployment, infrastructure, and operating environments.",
+    title: "Delivery & tooling",
+    text: "Docker, Linux, Git, GitHub, Postman",
+    note: "Building, testing, and deploying complete applications.",
   },
 ];

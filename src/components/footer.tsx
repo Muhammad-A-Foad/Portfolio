@@ -1,6 +1,7 @@
 import Link from "next/link";
 import { profile } from "@/content/portfolio";
 import { Arrow, Star } from "./icons";
+import { ResumeLink } from "./resume-link";
 
 export function Contact() {
   return (
@@ -47,10 +48,13 @@ export function Contact() {
           </p>
         </a>
       </div>
-      <a className="email-link" href={`mailto:${profile.email}`}>
-        {profile.email}
-        <Arrow diagonal />
-      </a>
+      <div className="contact-bottom">
+        <a className="email-link" href={`mailto:${profile.email}`}>
+          {profile.email}
+          <Arrow diagonal />
+        </a>
+        <ResumeLink className="button button-outline" />
+      </div>
     </section>
   );
 }
@@ -63,6 +67,7 @@ export function Footer() {
       </Link>
       <span className="footer-note">Thoughtful code. Useful software.</span>
       <div className="footer-links">
+        <ResumeLink compact />
         <a href={profile.github} target="_blank" rel="noopener noreferrer">
           GitHub <Arrow diagonal />
         </a>

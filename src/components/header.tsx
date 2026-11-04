@@ -1,6 +1,7 @@
 import Link from "next/link";
 import { Arrow } from "./icons";
 import { MobileMenu } from "./mobile-menu";
+import { ResumeLink } from "./resume-link";
 
 const links = [
   { href: "/#work", title: "Work" },
@@ -21,9 +22,12 @@ export function Header() {
           </Link>
         ))}
       </nav>
-      <Link className="header-contact" href="/#contact">
-        Let’s talk <Arrow diagonal />
-      </Link>
+      <div className="header-actions">
+        <ResumeLink className="header-resume" compact />
+        <Link className="header-contact" href="/#contact">
+          Let’s talk <Arrow diagonal />
+        </Link>
+      </div>
       <MobileMenu />
     </header>
   );

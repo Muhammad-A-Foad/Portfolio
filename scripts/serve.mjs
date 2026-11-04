@@ -15,6 +15,8 @@ const mime = {
   ".png": "image/png",
   ".woff2": "font/woff2",
   ".ico": "image/x-icon",
+  ".pdf": "application/pdf",
+  ".webp": "image/webp",
 };
 if (!existsSync(path.join(root, "index.html")))
   throw new Error("Run npm run build before npm start.");
@@ -42,6 +44,11 @@ const server = http.createServer((request, response) => {
   response.writeHead(exists ? 200 : 404, {
     "Content-Type": mime[path.extname(filename)] ?? "application/octet-stream",
     "X-Content-Type-Options": "nosniff",
+    ...(exists && path.extname(filename) === ".pdf"
+      ? {
+          "Content-Disposition": `attachment; filename="${path.basename(filename)}"`,
+        }
+      : {}),
   });
   if (request.method === "HEAD") {
     response.end();

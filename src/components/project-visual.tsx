@@ -33,12 +33,12 @@ function RestaurantVisual() {
   );
 }
 
-function LearningVisual() {
+function LearningVisual({ academy = false }: { academy?: boolean }) {
   return (
     <div className="learning-visual">
       <div className="visual-topline">
         <span>A STRUCTURE FOR LEARNING</span>
-        <span>02</span>
+        <span>{academy ? "03" : "02"}</span>
       </div>
       <div className="book-composition">
         <div className="book-sheet sheet-back" />
@@ -70,7 +70,7 @@ function GeoVisual() {
     <div className="geo-visual">
       <div className="visual-topline">
         <span>ENVIRONMENT, IN CONTEXT</span>
-        <span>03</span>
+        <span>04</span>
       </div>
       <svg
         className="topo-art"
@@ -150,6 +150,7 @@ export function ProjectVisual({ theme }: { theme: Project["theme"] }) {
             "Illustrative restaurant workflow connecting ordering, preparation, and collection. Not a product screenshot.",
           learning:
             "Conceptual book illustration for a learning management platform.",
+          academy: "Conceptual book illustration for Al Malik Academy.",
           geo: "Conceptual topographic illustration, not measured environmental data.",
           erp: "Proposed ERP domains: inventory, sales, finance, and people. Planning only.",
         }[theme]
@@ -157,8 +158,8 @@ export function ProjectVisual({ theme }: { theme: Project["theme"] }) {
     >
       {theme === "restaurant" ? (
         <RestaurantVisual />
-      ) : theme === "learning" ? (
-        <LearningVisual />
+      ) : theme === "learning" || theme === "academy" ? (
+        <LearningVisual academy={theme === "academy"} />
       ) : theme === "geo" ? (
         <GeoVisual />
       ) : (
